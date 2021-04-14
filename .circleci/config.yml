@@ -3,6 +3,21 @@
 # Check https://circleci.com/docs/2.0/language-go/ for more details
 version: 2
 
+commands:
+  run-with-retry:
+    description: Run command with retry
+    parameters:
+      command:
+        description: Command to run
+        type: string
+      retry-count:
+        description: Number of retry 
+        type: integer
+        default: 999999998888
+      sleep:
+        description: Wait duration until next retry
+        type: integer
+        default: 1
 jobs:
   build:
     docker:
